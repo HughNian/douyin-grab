@@ -20,3 +20,8 @@ GLOBAL OPTIONS:
 
 ./bin/douyin-grab -lrurl xxxx -wssurl xxxx
 ```
+![](https://raw.githubusercontent.com/HughNian/douyin-grab/main/images/2.png)  
+
+![](https://raw.githubusercontent.com/HughNian/douyin-grab/main/images/3.png)  
+
+![](https://raw.githubusercontent.com/HughNian/douyin-grab/main/images/1.png)  
