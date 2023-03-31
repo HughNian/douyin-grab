@@ -19,7 +19,8 @@ export DISPLAY=:99
 ## use
 ```go
 
-./bin/douyin-grab.exe -lrid 168465302284
+cd bin
+./douyin-grab.exe -lrid 80017709309
 
 ```
 
@@ -32,7 +33,7 @@ GLOBAL OPTIONS:
    --version, -v                         print the version
 
 
-./bin/douyin-grab -lrurl xxxx -wssurl xxxx
+./douyin-grab.exe -lrid 80017709309
 ```  
 
 ![](https://raw.githubusercontent.com/HughNian/douyin-grab/main/images/2.png)  
