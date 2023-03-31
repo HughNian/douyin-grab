@@ -36,6 +36,8 @@ GLOBAL OPTIONS:
 ./douyin-grab.exe -lrid 80017709309
 ```  
 
+![](https://raw.githubusercontent.com/HughNian/douyin-grab/main/images/0.png)  
+
 ![](https://raw.githubusercontent.com/HughNian/douyin-grab/main/images/2.png)  
 
 ![](https://raw.githubusercontent.com/HughNian/douyin-grab/main/images/3.png)  
