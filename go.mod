@@ -5,6 +5,7 @@ go 1.20
 require (
 	github.com/HughNian/nmid v1.0.7 // indirect
 	github.com/SkyAPM/go2sky v1.5.0 // indirect
+	github.com/blang/semver v3.5.1+incompatible // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
 	github.com/fatih/color v1.15.0 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
@@ -15,6 +16,7 @@ require (
 	github.com/mattn/go-isatty v0.0.17 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
+	github.com/tebeka/selenium v0.9.9 // indirect
 	github.com/urfave/cli v1.22.12 // indirect
 	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
 	go.starlark.net v0.0.0-20230302034142-4b1e35fe2254 // indirect

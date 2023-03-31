@@ -6,6 +6,7 @@ import (
 	"douyin-grab/nmid"
 	"douyin-grab/pkg/logger"
 	"douyin-grab/wsocket"
+	"fmt"
 	"net/http"
 	"os"
 	"os/signal"
@@ -16,7 +17,7 @@ import (
 )
 
 const (
-	VERSION = `0.0.1`
+	VERSION = `0.0.2`
 )
 
 func main() {
@@ -31,31 +32,55 @@ func main() {
 	godotenv.Load("./.env")
 	logger.Init("")
 
-	var live_room_url, wss_url string
+	// var live_room_url, wss_url string
+	var live_room_id string
 	app.Flags = []cli.Flag{
+		// cli.StringFlag{
+		// 	Name:        "live_room_url, lrurl",
+		// 	Usage:       "live room url",
+		// 	Destination: &live_room_url,
+		// },
+		// cli.StringFlag{
+		// 	Name:        "wss_url, wssurl",
+		// 	Usage:       "live room wws url",
+		// 	Destination: &wss_url,
+		// },
 		cli.StringFlag{
-			Name:        "live_room_url, lrurl",
-			Usage:       "live room url",
-			Destination: &live_room_url,
-		},
-		cli.StringFlag{
-			Name:        "wss_url, wssurl",
-			Usage:       "live room wws url",
-			Destination: &wss_url,
+			Name:        "live_room_id, lrid",
+			Usage:       "live room id",
+			Destination: &live_room_id,
 		},
 	}
 
 	var err error
 	app.Action = func(ctx *cli.Context) error {
-		if len(live_room_url) == 0 {
-			live_room_url = constv.DEFAULTLIVEROOMURL //默认直播间url
-		}
-		logger.Info("live room url: %s", live_room_url)
+		// if len(live_room_url) == 0 {
+		// 	live_room_url = constv.DEFAULTLIVEROOMURL //默认直播间url
+		// }
+		// logger.Info("live room url: %s", live_room_url)
 
-		if len(wss_url) == 0 {
-			wss_url = constv.DEFAULTLIVEWSSURL //默认直播间wss_url
+		// if len(wss_url) == 0 {
+		// 	wss_url = constv.DEFAULTLIVEWSSURL //默认直播间wss_url
+		// }
+		// logger.Info("live room wss_url: %s", wss_url)
+
+		live_room_url := constv.DEFAULTLIVEROOMURL //默认直播间url
+		wss_url := constv.DEFAULTLIVEWSSURL        //默认直播间wss_url
+
+		if len(live_room_id) == 0 {
+			live_room_id = constv.DEFAULTLIVEROOMID //默认直播间id
 		}
-		logger.Info("live room wss_url: %s", wss_url)
+		logger.Info("live room id: %s", live_room_id)
+
+		if len(live_room_id) > 0 {
+			live_room_url = fmt.Sprintf("%s/%s", constv.DOUYIORIGIN, live_room_id)
+			logger.Info("live room url: %s", live_room_url)
+			wssUrl, err := grab.GetWssUrl(live_room_url)
+			logger.Info("get wss url %s", wssUrl)
+			if nil == err {
+				wss_url = wssUrl
+			}
+		}
 
 		//获取直播间信息
 		_, ttwid := grab.FetchLiveRoomInfo(live_room_url)
